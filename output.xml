@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-23T12:42:29.476249" rpa="false" schemaversion="5">
+<suite id="s1" name="TC Validation" source="C:\Users\prade\PycharmProjects\RobotApiAutomation\TC_Validation.robot">
+<test id="s1-t1" name="TC_001_List_All_User_Request" line="14">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:29.948659" level="INFO">Creating Session using : alias=Get_Student_Details, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>Get_Student_Details</arg>
+<arg>${Base_URL2}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-05-23T12:42:29.948659" elapsed="0.001449"/>
+</kw>
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:29.950657" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-05-23T12:42:30.466422" level="INFO">GET Request : url=https://reqres.in/api/users?page=2 
+ path_url=/api/users?page=2 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-05-23T12:42:30.466422" level="INFO">GET Response : url=https://reqres.in/api/users?page=2 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 23 May 2024 07:12:31 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1716364968&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=eIbtCt6pqzvuj%2F5IjgOSmJZJKK3i6WcR8yt7O0MlPrg%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1716364968&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=eIbtCt6pqzvuj%2F5IjgOSmJZJKK3i6WcR8yt7O0MlPrg%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '3686', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '88833cf2693e47bf-BOM', 'Content-Encoding': 'gzip'} 
+ body={"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg time="2024-05-23T12:42:30.466422" level="INFO">C:\Python3.12\Lib\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-05-23T12:42:30.467439" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>Get_Student_Details</arg>
+<arg>api/users?page=2</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2024-05-23T12:42:29.950657" elapsed="0.516782"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-23T12:42:30.467439" elapsed="0.001257"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-23T12:42:30.469716" elapsed="0.000994"/>
+</kw>
+<status status="PASS" start="2024-05-23T12:42:29.947657" elapsed="0.523053"/>
+</test>
+<test id="s1-t2" name="TC_002_Fetch_Student_Details_By_Id" line="21">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:30.473927" level="INFO">Creating Session using : alias=FetchData, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>FetchData</arg>
+<arg>${Base_URL2}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-05-23T12:42:30.473927" elapsed="0.000000"/>
+</kw>
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:30.474946" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-05-23T12:42:30.953924" level="INFO">GET Request : url=https://reqres.in/api/user/2 
+ path_url=/api/user/2 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-05-23T12:42:30.953924" level="INFO">GET Response : url=https://reqres.in/api/user/2 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 23 May 2024 07:12:31 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1716364648&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=8As1PGfZQzlfIW8E3aIB5I5zanFQcU5s7aigf%2FLEpSg%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1716364648&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=8As1PGfZQzlfIW8E3aIB5I5zanFQcU5s7aigf%2FLEpSg%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"e8-ov4wWh4/OY1IMQMqWgskYtOFnVs"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '3056', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '88833cf5a9918569-BOM', 'Content-Encoding': 'gzip'} 
+ body={"data":{"id":2,"name":"fuchsia rose","year":2001,"color":"#C74375","pantone_value":"17-2031"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg time="2024-05-23T12:42:30.954925" level="INFO">C:\Python3.12\Lib\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-05-23T12:42:30.954925" level="INFO">${Response} = &lt;Response [200]&gt;</msg>
+<var>${Response}</var>
+<arg>FetchData</arg>
+<arg>api/user/2</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2024-05-23T12:42:30.474946" elapsed="0.479979"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${Response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-23T12:42:30.955946" elapsed="0.001015"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${Response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-23T12:42:30.957960" elapsed="0.000977"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2024-05-23T12:42:30.960349" level="INFO">${actual_code} = 200</msg>
+<var>${actual_code}</var>
+<arg>${Response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2024-05-23T12:42:30.958937" elapsed="0.001412"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-05-23T12:42:30.960349" elapsed="0.001409"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:30.961758" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2024-05-23T12:42:30.963884" level="INFO">To JSON using : content={"data":{"id":2,"name":"fuchsia rose","year":2001,"color":"#C74375","pantone_value":"17-2031"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} </msg>
+<msg time="2024-05-23T12:42:30.963884" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2024-05-23T12:42:30.963884" level="INFO">${json_resp} = {'data': {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'}, 'support': {'url': 'https://reqres.in/#support-heading', 'text': 'To keep ReqRes free, contrib...</msg>
+<var>${json_resp}</var>
+<arg>${Response.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2024-05-23T12:42:30.961758" elapsed="0.002126"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2024-05-23T12:42:30.998943" level="INFO">@{first_name_list} = [ fuchsia rose ]</msg>
+<var>@{first_name_list}</var>
+<arg>${json_resp}</arg>
+<arg>data.name</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2024-05-23T12:42:30.964909" elapsed="0.034034"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-05-23T12:42:30.999962" level="INFO">${first_name} = fuchsia rose</msg>
+<var>${first_name}</var>
+<arg>${first_name_list}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-05-23T12:42:30.999962" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${first_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-23T12:42:30.999962" elapsed="0.000999"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2024-05-23T12:42:31.027282" level="INFO">@{year_list} = [ 2001 ]</msg>
+<var>@{year_list}</var>
+<arg>${json_resp}</arg>
+<arg>data.year</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2024-05-23T12:42:31.000961" elapsed="0.026321"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-05-23T12:42:31.028636" level="INFO">${year} = 2001</msg>
+<var>${year}</var>
+<arg>${year_list}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-05-23T12:42:31.027282" elapsed="0.001354"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${year}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-23T12:42:31.029670" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-23T12:42:30.472877" elapsed="0.557820"/>
+</test>
+<test id="s1-t3" name="TC_003_Get_With_Param" line="42">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:31.033056" level="INFO">Creating Session using : alias=Get_Param, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>Get_Param</arg>
+<arg>${Base_URL2}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-05-23T12:42:31.031331" elapsed="0.001725"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-05-23T12:42:31.033056" level="INFO">&amp;{param} = { page=1 }</msg>
+<var>&amp;{param}</var>
+<arg>page=1</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-05-23T12:42:31.033056" elapsed="0.000000"/>
+</kw>
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:31.034467" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-05-23T12:42:31.362811" level="INFO">GET Request : url=https://reqres.in/api/users%20param=%7B'page':%20'1'%7D 
+ path_url=/api/users%20param=%7B'page':%20'1'%7D 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-05-23T12:42:31.362811" level="INFO">GET Response : url=https://reqres.in/api/users%20param=%7B'page':%20'1'%7D 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 23 May 2024 07:12:32 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1716373653&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=yAmYaLVFzb2y2AF0dRISbD5ej23kLmGN67ifwV%2Fg1vE%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1716373653&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=yAmYaLVFzb2y2AF0dRISbD5ej23kLmGN67ifwV%2Fg1vE%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2c1-N6Rqerxquq2kgQhL51EiSg4x0R8"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '4870', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '88833cf87c055518-DEL', 'Content-Encoding': 'gzip'} 
+ body={"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"name":"cerulean","year":2000,"color":"#98B2D1","pantone_value":"15-4020"},{"id":2,"name":"fuchsia rose","year":2001,"color":"#C74375","pantone_value":"17-2031"},{"id":3,"name":"true red","year":2002,"color":"#BF1932","pantone_value":"19-1664"},{"id":4,"name":"aqua sky","year":2003,"color":"#7BC4C4","pantone_value":"14-4811"},{"id":5,"name":"tigerlily","year":2004,"color":"#E2583E","pantone_value":"17-1456"},{"id":6,"name":"blue turquoise","year":2005,"color":"#53B0AE","pantone_value":"15-5217"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg time="2024-05-23T12:42:31.362811" level="INFO">C:\Python3.12\Lib\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-05-23T12:42:31.363858" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>Get_Param</arg>
+<arg>/api/users param=${param}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2024-05-23T12:42:31.034467" elapsed="0.329391"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-23T12:42:31.363858" elapsed="0.001291"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${param}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-23T12:42:31.366166" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-23T12:42:31.367190" elapsed="0.000976"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2024-05-23T12:42:31.370574" level="INFO">${status_code} = 200</msg>
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2024-05-23T12:42:31.369174" elapsed="0.001400"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-05-23T12:42:31.370574" elapsed="0.000000"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:31.371733" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2024-05-23T12:42:31.372816" level="INFO">To JSON using : content={"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"name":"cerulean","year":2000,"color":"#98B2D1","pantone_value":"15-4020"},{"id":2,"name":"fuchsia rose","year":2001,"color":"#C74375","pantone_value":"17-2031"},{"id":3,"name":"true red","year":2002,"color":"#BF1932","pantone_value":"19-1664"},{"id":4,"name":"aqua sky","year":2003,"color":"#7BC4C4","pantone_value":"14-4811"},{"id":5,"name":"tigerlily","year":2004,"color":"#E2583E","pantone_value":"17-1456"},{"id":6,"name":"blue turquoise","year":2005,"color":"#53B0AE","pantone_value":"15-5217"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} </msg>
+<msg time="2024-05-23T12:42:31.372816" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2024-05-23T12:42:31.372816" level="INFO">${JsonResponse} = {'page': 1, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 1, 'name': 'cerulean', 'year': 2000, 'color': '#98B2D1', 'pantone_value': '15-4020'}, {'id': 2, 'name': 'fuchsia rose', 'year'...</msg>
+<var>${JsonResponse}</var>
+<arg>${response.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2024-05-23T12:42:31.371733" elapsed="0.001083"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2024-05-23T12:42:31.453164" level="INFO">@{name_list} = [ cerulean ]</msg>
+<var>@{name_list}</var>
+<arg>${JsonResponse}</arg>
+<arg>data[0].name</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2024-05-23T12:42:31.374130" elapsed="0.079034"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${name_list}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-23T12:42:31.454124" elapsed="0.000707"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-05-23T12:42:31.454831" level="INFO">${name} = cerulean</msg>
+<var>${name}</var>
+<arg>${name_list}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-05-23T12:42:31.454831" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-23T12:42:31.456203" elapsed="0.000828"/>
+</kw>
+<kw name="Should Not Be Equal" owner="BuiltIn">
+<arg>${name}</arg>
+<arg>Eve</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" start="2024-05-23T12:42:31.457329" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-23T12:42:31.031331" elapsed="0.427012"/>
+</test>
+<test id="s1-t4" name="TC_004_Validate_Delete_Request" line="60">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:31.460405" level="INFO">Creating Session using : alias=reqres, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>reqres</arg>
+<arg>${Base_URL2}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-05-23T12:42:31.460405" elapsed="0.000000"/>
+</kw>
+<kw name="Delete Request" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:31.460405" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+<msg time="2024-05-23T12:42:32.095628" level="INFO">DELETE Request : url=https://reqres.in/api/users/2 
+ path_url=/api/users/2 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2024-05-23T12:42:32.095628" level="INFO">DELETE Response : url=https://reqres.in/api/users/2 
+ status=204, reason=No Content 
+ headers={'Date': 'Thu, 23 May 2024 07:12:32 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1716448352&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=bpfuP%2FH75YqgdLo%2Fo55ZXn%2BLyZsJSWJGSSv43H8QcHk%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1716448352&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=bpfuP%2FH75YqgdLo%2Fo55ZXn%2BLyZsJSWJGSSv43H8QcHk%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '88833cfb19c7599f-DEL'} 
+ body=None 
+ </msg>
+<msg time="2024-05-23T12:42:32.095628" level="INFO">C:\Python3.12\Lib\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-05-23T12:42:32.095628" level="INFO">${Response} = &lt;Response [204]&gt;</msg>
+<var>${Response}</var>
+<arg>reqres</arg>
+<arg>/api/users/2</arg>
+<doc>*DEPRECATED* Please use `DELETE On Session` instead.</doc>
+<status status="PASS" start="2024-05-23T12:42:31.460405" elapsed="0.636415"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${Response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-23T12:42:32.096820" elapsed="0.001150"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-05-23T12:42:32.098993" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${Response.status_code}</arg>
+<arg>204</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-05-23T12:42:32.098993" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-23T12:42:31.459391" elapsed="0.640593"/>
+</test>
+<test id="s1-t5" name="TC_005_PostRequest:" line="67">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:32.102295" level="INFO">Creating Session using : alias=postReq, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>postReq</arg>
+<arg>${Base_URL2}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-05-23T12:42:32.101177" elapsed="0.001118"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-05-23T12:42:32.103825" level="INFO">${body} = {'name': 'Pradeep', 'job': 'Automation Engineer'}</msg>
+<var>${body}</var>
+<arg>name=Pradeep</arg>
+<arg>job=Automation Engineer</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-05-23T12:42:32.102942" elapsed="0.000883"/>
+</kw>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:32.103825" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-05-23T12:42:32.904766" level="INFO">POST Request : url=https://reqres.in/api/users 
+ path_url=/api/users 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '49', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Pradeep", "job": "Automation Engineer"}' 
+ </msg>
+<msg time="2024-05-23T12:42:32.904766" level="INFO">POST Response : url=https://reqres.in/api/users 
+ status=201, reason=Created 
+ headers={'Date': 'Thu, 23 May 2024 07:12:33 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '96', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1716448353&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=hW8i8bBX74VSQMX4PTciPdzeNa%2FujST0gwEvTSauYCs%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1716448353&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=hW8i8bBX74VSQMX4PTciPdzeNa%2FujST0gwEvTSauYCs%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"60-9dA3YobgRP80Ps3Vw8KmizO1his"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '88833d0029753a4d-BOM'} 
+ body={"name":"Pradeep","job":"Automation Engineer","id":"154","createdAt":"2024-05-23T07:12:33.509Z"} 
+ </msg>
+<msg time="2024-05-23T12:42:32.904766" level="INFO">C:\Python3.12\Lib\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-05-23T12:42:32.904766" level="INFO">${Response} = &lt;Response [201]&gt;</msg>
+<var>${Response}</var>
+<arg>postReq</arg>
+<arg>/api/users</arg>
+<arg>json=${body}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2024-05-23T12:42:32.103825" elapsed="0.800941"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-05-23T12:42:32.906955" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${Response.status_code}</arg>
+<arg>201</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-05-23T12:42:32.905901" elapsed="0.001054"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${Response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-23T12:42:32.906955" elapsed="0.000983"/>
+</kw>
+<status status="PASS" start="2024-05-23T12:42:32.101177" elapsed="0.808740"/>
+</test>
+<test id="s1-t6" name="TC_006_PutReq:" line="77">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:32.911918" level="INFO">Creating Session using : alias=putReq, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>putReq</arg>
+<arg>${Base_URL2}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-05-23T12:42:32.910917" elapsed="0.001001"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-05-23T12:42:32.912916" level="INFO">${body} = {'name': 'Pradeep', 'job': 'Network Automation Engineer'}</msg>
+<var>${body}</var>
+<arg>name=Pradeep</arg>
+<arg>job=Network Automation Engineer</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-05-23T12:42:32.912916" elapsed="0.000000"/>
+</kw>
+<kw name="Put Request" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:32.913562" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg time="2024-05-23T12:42:35.911230" level="INFO">PUT Request : url=https://reqres.in/api/users/2 
+ path_url=/api/users/2 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '57', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Pradeep", "job": "Network Automation Engineer"}' 
+ </msg>
+<msg time="2024-05-23T12:42:35.911230" level="INFO">PUT Response : url=https://reqres.in/api/users/2 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 23 May 2024 07:12:36 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1716448355&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=Gx1VpirVSMeKegZNZ7oBw4OVkyQoW95%2Fb2XeenXD7qM%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1716448355&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=Gx1VpirVSMeKegZNZ7oBw4OVkyQoW95%2Fb2XeenXD7qM%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"5d-N9+oyurKwqQAuw7yMPifYv2GK54"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '88833d0fa93585d8-BOM', 'Content-Encoding': 'gzip'} 
+ body={"name":"Pradeep","job":"Network Automation Engineer","updatedAt":"2024-05-23T07:12:35.980Z"} 
+ </msg>
+<msg time="2024-05-23T12:42:35.911230" level="INFO">C:\Python3.12\Lib\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-05-23T12:42:35.911230" level="INFO">${Response} = &lt;Response [200]&gt;</msg>
+<var>${Response}</var>
+<arg>putReq</arg>
+<arg>/api/users/2</arg>
+<arg>json=${body}</arg>
+<doc>*DEPRECATED* Please use `PUT On Session` instead.</doc>
+<status status="PASS" start="2024-05-23T12:42:32.913562" elapsed="2.997668"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-05-23T12:42:35.913223" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${Response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-05-23T12:42:35.912712" elapsed="0.000511"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${Response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-23T12:42:35.914296" elapsed="0.001019"/>
+</kw>
+<status status="PASS" start="2024-05-23T12:42:32.910917" elapsed="3.005578"/>
+</test>
+<test id="s1-t7" name="TC_007_CreateNew_Resource:" line="93">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:35.918762" level="INFO">Creating Session using : alias=newReq, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>newReq</arg>
+<arg>${BASE_URL2}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-05-23T12:42:35.918762" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-05-23T12:42:35.919775" level="INFO">${body} = {'name': 'Shiva', 'job': 'Incident Manager'}</msg>
+<var>${body}</var>
+<arg>name=Shiva</arg>
+<arg>job=Incident Manager</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-05-23T12:42:35.919775" elapsed="0.000000"/>
+</kw>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:35.920843" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-05-23T12:42:38.702970" level="INFO">POST Request : url=https://reqres.in/api/users 
+ path_url=/api/users 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '44', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Shiva", "job": "Incident Manager"}' 
+ </msg>
+<msg time="2024-05-23T12:42:38.702970" level="INFO">POST Response : url=https://reqres.in/api/users 
+ status=201, reason=Created 
+ headers={'Date': 'Thu, 23 May 2024 07:12:39 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '91', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1716448359&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=dNj%2FUK3Us880AgKxAa7J4F0z8xEOrpXXyc%2BqlgUIH24%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1716448359&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=dNj%2FUK3Us880AgKxAa7J4F0z8xEOrpXXyc%2BqlgUIH24%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"5b-8SxPho/ZByZoadIlnrtUc/rlfQg"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '88833d23ec5d3bf2-BOM'} 
+ body={"name":"Shiva","job":"Incident Manager","id":"579","createdAt":"2024-05-23T07:12:39.224Z"} 
+ </msg>
+<msg time="2024-05-23T12:42:38.703999" level="INFO">C:\Python3.12\Lib\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-05-23T12:42:38.703999" level="INFO">${Response} = &lt;Response [201]&gt;</msg>
+<var>${Response}</var>
+<arg>newReq</arg>
+<arg>/api/users</arg>
+<arg>json=${body}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2024-05-23T12:42:35.920843" elapsed="2.783156"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-05-23T12:42:38.706010" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${Response.status_code}</arg>
+<arg>201</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-05-23T12:42:38.705013" elapsed="0.000997"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${Response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-23T12:42:38.706010" elapsed="0.001350"/>
+</kw>
+<status status="PASS" start="2024-05-23T12:42:35.917542" elapsed="2.789818"/>
+</test>
+<test id="s1-t8" name="TC_008_End_to_End_TestCase:" line="110">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:38.708539" level="INFO">Creating Session using : alias=ETE, url=https://thetestingworldapi.com/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>ETE</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-05-23T12:42:38.708539" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-05-23T12:42:38.709999" level="INFO">&amp;{headers} = { Content-Type=application/json }</msg>
+<var>&amp;{headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-05-23T12:42:38.709999" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-05-23T12:42:38.710976" level="INFO">&amp;{body} = { first_name=Pradeep | middle_name=Kumar | last_name=Sahani | date_of_birth=02/07/1995 }</msg>
+<var>&amp;{body}</var>
+<arg>first_name=${first_name}</arg>
+<arg>middle_name=Kumar</arg>
+<arg>last_name=${last_name}</arg>
+<arg>date_of_birth=02/07/1995</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-05-23T12:42:38.709999" elapsed="0.000977"/>
+</kw>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:38.711334" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-05-23T12:42:42.581772" level="INFO">POST Request : url=https://thetestingworldapi.com/api/studentsDetails 
+ path_url=/api/studentsDetails 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '103'} 
+ body=b'{"first_name": "Pradeep", "middle_name": "Kumar", "last_name": "Sahani", "date_of_birth": "02/07/1995"}' 
+ </msg>
+<msg time="2024-05-23T12:42:42.581772" level="INFO">POST Response : url=https://thetestingworldapi.com/api/studentsDetails 
+ status=201, reason=Created 
+ headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Location': 'https://thetestingworldapi.com/api/studentsDetails/10279592', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Thu, 23 May 2024 07:12:42 GMT', 'Content-Length': '110'} 
+ body={"id":10279592,"first_name":"Pradeep","middle_name":"Kumar","last_name":"Sahani","date_of_birth":"02/07/1995"} 
+ </msg>
+<msg time="2024-05-23T12:42:42.581772" level="INFO">C:\Python3.12\Lib\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-05-23T12:42:42.581772" level="INFO">${post_response} = &lt;Response [201]&gt;</msg>
+<var>${post_response}</var>
+<arg>ETE</arg>
+<arg>api/studentsDetails</arg>
+<arg>headers=${headers}</arg>
+<arg>json=${body}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2024-05-23T12:42:38.711334" elapsed="3.870438"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:42.582768" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2024-05-23T12:42:42.585018" level="INFO">To JSON using : content={"id":10279592,"first_name":"Pradeep","middle_name":"Kumar","last_name":"Sahani","date_of_birth":"02/07/1995"} </msg>
+<msg time="2024-05-23T12:42:42.585018" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2024-05-23T12:42:42.585018" level="INFO">${json_response} = {'id': 10279592, 'first_name': 'Pradeep', 'middle_name': 'Kumar', 'last_name': 'Sahani', 'date_of_birth': '02/07/1995'}</msg>
+<var>${json_response}</var>
+<arg>${post_response.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2024-05-23T12:42:42.582768" elapsed="0.002250"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2024-05-23T12:42:42.634155" level="INFO">@{id_list} = [ 10279592 ]</msg>
+<var>@{id_list}</var>
+<arg>${json_response}</arg>
+<arg>id</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2024-05-23T12:42:42.586055" elapsed="0.048100"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-05-23T12:42:42.636318" level="INFO">${id} = 10279592</msg>
+<var>${id}</var>
+<arg>${id_list}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-05-23T12:42:42.635260" elapsed="0.001058"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-05-23T12:42:42.637322" level="INFO">&amp;{body1} = { id=10279592 | first_name=Neel | middle_name=Kanth | last_name=vairagi | date_of_birth=02/07/1995 }</msg>
+<var>&amp;{body1}</var>
+<arg>id=${id}</arg>
+<arg>first_name=Neel</arg>
+<arg>middle_name=Kanth</arg>
+<arg>last_name=vairagi</arg>
+<arg>date_of_birth=02/07/1995</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-05-23T12:42:42.636318" elapsed="0.001004"/>
+</kw>
+<kw name="Put Request" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:42.637322" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg time="2024-05-23T12:42:42.766405" level="INFO">PUT Request : url=https://thetestingworldapi.com/api/studentsDetails/10279592 
+ path_url=/api/studentsDetails/10279592 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '117'} 
+ body={"id": 10279592, "first_name": "Neel", "middle_name": "Kanth", "last_name": "vairagi", "date_of_birth": "02/07/1995"} 
+ </msg>
+<msg time="2024-05-23T12:42:42.766405" level="INFO">PUT Response : url=https://thetestingworldapi.com/api/studentsDetails/10279592 
+ status=200, reason=OK 
+ headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Thu, 23 May 2024 07:12:42 GMT', 'Content-Length': '46'} 
+ body={"status":"true","msg":"update  data success"} 
+ </msg>
+<msg time="2024-05-23T12:42:42.766405" level="INFO">C:\Python3.12\Lib\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-05-23T12:42:42.767422" level="INFO">${put_response} = &lt;Response [200]&gt;</msg>
+<var>${put_response}</var>
+<arg>ETE</arg>
+<arg>api/studentsDetails/${id}</arg>
+<arg>headers=${headers}</arg>
+<arg>data=${body1}</arg>
+<doc>*DEPRECATED* Please use `PUT On Session` instead.</doc>
+<status status="PASS" start="2024-05-23T12:42:42.637322" elapsed="0.130100"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:42.768594" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2024-05-23T12:42:42.769900" level="INFO">To JSON using : content={"status":"true","msg":"update  data success"} </msg>
+<msg time="2024-05-23T12:42:42.769900" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2024-05-23T12:42:42.769900" level="INFO">${json_put_response} = {'status': 'true', 'msg': 'update  data success'}</msg>
+<var>${json_put_response}</var>
+<arg>${put_response.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2024-05-23T12:42:42.768594" elapsed="0.001306"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2024-05-23T12:42:42.808972" level="INFO">@{status_list} = [ true ]</msg>
+<var>@{status_list}</var>
+<arg>${json_put_response}</arg>
+<arg>status</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2024-05-23T12:42:42.770915" elapsed="0.038057"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-05-23T12:42:42.809991" level="INFO">${status} = true</msg>
+<var>${status}</var>
+<arg>${status_list}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-05-23T12:42:42.809991" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-05-23T12:42:42.811193" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${put_response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-05-23T12:42:42.809991" elapsed="0.001202"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${status}</arg>
+<arg>true</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-23T12:42:42.812203" elapsed="0.000000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:42.934591" level="INFO">GET Request : url=https://thetestingworldapi.com/api/studentsDetails/10279592 
+ path_url=/api/studentsDetails/10279592 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-05-23T12:42:42.934591" level="INFO">GET Response : url=https://thetestingworldapi.com/api/studentsDetails/10279592 
+ status=200, reason=OK 
+ headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Thu, 23 May 2024 07:12:43 GMT', 'Content-Length': '133'} 
+ body={"status":"true","data":{"id":10279592,"first_name":"Neel","middle_name":"Kanth","last_name":"vairagi","date_of_birth":"02/07/1995"}} 
+ </msg>
+<msg time="2024-05-23T12:42:42.934591" level="INFO">C:\Python3.12\Lib\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-05-23T12:42:42.934591" level="INFO">${get_request} = &lt;Response [200]&gt;</msg>
+<var>${get_request}</var>
+<arg>ETE</arg>
+<arg>/api/studentsDetails/${id}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-05-23T12:42:42.813220" elapsed="0.121371"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:42.935607" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2024-05-23T12:42:42.937757" level="INFO">To JSON using : content={"status":"true","data":{"id":10279592,"first_name":"Neel","middle_name":"Kanth","last_name":"vairagi","date_of_birth":"02/07/1995"}} </msg>
+<msg time="2024-05-23T12:42:42.937757" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2024-05-23T12:42:42.937757" level="INFO">${json_response} = {'status': 'true', 'data': {'id': 10279592, 'first_name': 'Neel', 'middle_name': 'Kanth', 'last_name': 'vairagi', 'date_of_birth': '02/07/1995'}}</msg>
+<var>${json_response}</var>
+<arg>${get_request.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2024-05-23T12:42:42.935607" elapsed="0.002150"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2024-05-23T12:42:42.967210" level="INFO">@{L_f_name} = [ Neel ]</msg>
+<var>@{L_f_name}</var>
+<arg>${json_response}</arg>
+<arg>data.first_name</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2024-05-23T12:42:42.937757" elapsed="0.029453"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-05-23T12:42:42.969029" level="INFO">${first_name} = Neel</msg>
+<var>${first_name}</var>
+<arg>${L_f_name}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-05-23T12:42:42.968477" elapsed="0.000552"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2024-05-23T12:42:42.999854" level="INFO">@{l_name_list} = [ vairagi ]</msg>
+<var>@{l_name_list}</var>
+<arg>${json_response}</arg>
+<arg>data.last_name</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2024-05-23T12:42:42.969029" elapsed="0.030825"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-05-23T12:42:43.000854" level="INFO">${last_name} = vairagi</msg>
+<var>${last_name}</var>
+<arg>${l_name_list}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-05-23T12:42:42.999854" elapsed="0.001000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${first_name}</arg>
+<arg>Neel</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-05-23T12:42:43.000854" elapsed="0.000000"/>
+</kw>
+<kw name="Delete Request" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:43.001859" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+<msg time="2024-05-23T12:42:43.141555" level="INFO">DELETE Request : url=https://thetestingworldapi.com/api/studentsDetails/10279592 
+ path_url=/api/studentsDetails/10279592 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2024-05-23T12:42:43.141555" level="INFO">DELETE Response : url=https://thetestingworldapi.com/api/studentsDetails/10279592 
+ status=200, reason=OK 
+ headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Thu, 23 May 2024 07:12:43 GMT', 'Content-Length': '46'} 
+ body={"status":"true","msg":"Delete  data success"} 
+ </msg>
+<msg time="2024-05-23T12:42:43.141555" level="INFO">C:\Python3.12\Lib\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-05-23T12:42:43.141555" level="INFO">${delete_request} = &lt;Response [200]&gt;</msg>
+<var>${delete_request}</var>
+<arg>ETE</arg>
+<arg>/api/studentsDetails/${id}</arg>
+<doc>*DEPRECATED* Please use `DELETE On Session` instead.</doc>
+<status status="PASS" start="2024-05-23T12:42:43.001859" elapsed="0.140691"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:43.321441" level="INFO">GET Request : url=https://thetestingworldapi.com/api/studentsDetails/10279592 
+ path_url=/api/studentsDetails/10279592 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-05-23T12:42:43.321441" level="INFO">GET Response : url=https://thetestingworldapi.com/api/studentsDetails/10279592 
+ status=200, reason=OK 
+ headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Thu, 23 May 2024 07:12:43 GMT', 'Content-Length': '40'} 
+ body={"status":"false","msg":"No data Found"} 
+ </msg>
+<msg time="2024-05-23T12:42:43.322443" level="INFO">C:\Python3.12\Lib\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-05-23T12:42:43.323439" level="INFO">${get_deleted_request} = &lt;Response [200]&gt;</msg>
+<var>${get_deleted_request}</var>
+<arg>ETE</arg>
+<arg>/api/studentsDetails/${id}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-05-23T12:42:43.142550" elapsed="0.180889"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${get_deleted_request.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-23T12:42:43.323439" elapsed="0.001514"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2024-05-23T12:42:43.332986" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2024-05-23T12:42:43.336518" level="INFO">To JSON using : content={"status":"false","msg":"No data Found"} </msg>
+<msg time="2024-05-23T12:42:43.336518" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2024-05-23T12:42:43.336518" level="INFO">${json_deleted_response} = {'status': 'false', 'msg': 'No data Found'}</msg>
+<var>${json_deleted_response}</var>
+<arg>${get_deleted_request.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2024-05-23T12:42:43.332986" elapsed="0.003532"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2024-05-23T12:42:43.372796" level="INFO">@{delete_status_list} = [ false ]</msg>
+<var>@{delete_status_list}</var>
+<arg>${json_deleted_response}</arg>
+<arg>status</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2024-05-23T12:42:43.337520" elapsed="0.035276"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-05-23T12:42:43.373909" level="INFO">${delete_status} = false</msg>
+<var>${delete_status}</var>
+<arg>${delete_status_list}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-05-23T12:42:43.373909" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${delete_status}</arg>
+<arg>false</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-23T12:42:43.374957" elapsed="0.000522"/>
+</kw>
+<status status="PASS" start="2024-05-23T12:42:38.708539" elapsed="4.667472"/>
+</test>
+<status status="PASS" start="2024-05-23T12:42:29.548652" elapsed="13.830772"/>
+</suite>
+<statistics>
+<total>
+<stat pass="8" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="8" fail="0" skip="0" id="s1" name="TC Validation">TC Validation</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-05-23T12:42:29.950657" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-05-23T12:42:30.474946" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-05-23T12:42:30.961758" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2024-05-23T12:42:31.034467" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-05-23T12:42:31.371733" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2024-05-23T12:42:31.460405" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+<msg time="2024-05-23T12:42:32.103825" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-05-23T12:42:32.913562" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg time="2024-05-23T12:42:35.920843" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-05-23T12:42:38.711334" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-05-23T12:42:42.582768" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2024-05-23T12:42:42.637322" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg time="2024-05-23T12:42:42.768594" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2024-05-23T12:42:42.935607" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2024-05-23T12:42:43.001859" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+<msg time="2024-05-23T12:42:43.332986" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+</errors>
+</robot>
