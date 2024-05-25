@@ -84,32 +84,18 @@ TC_007_CreateNew_Resource:
 
 
 TC_008_End_to_End_TestCase:
-    create session  ETE  ${BASE_URL}
-    &{headers}=   create dictionary  Content-Type=application/json
     &{body}=   create dictionary  first_name=${first_name}  middle_name=Kumar  last_name=${last_name}  date_of_birth=02/07/1995
 
-    ${post_response}=  post request  ETE   api/studentsDetails   headers=${headers}   json=${body}
-    #log to console  ${post_response.content}
-
-    ${json_response}=  to json  ${post_response.content}
-    @{id_list}=  get value from json  ${json_response}  id
-    ${id}=  get from list  ${id_list}  0
+    ${id}=  Post Create Data and Validate  ${Base_URL}   ${body}   200
 
     &{body1}=  create dictionary   id=${id}   first_name=Neel    middle_name=Kanth    last_name=vairagi   date_of_birth=02/07/1995
-    ${put_response}=  put request   ETE   api/studentsDetails/${id}  headers=${headers}  data=${body1}
 
-    ${json_put_response}=  to json  ${put_response.content}
-    @{status_list}=  get value from json  ${json_put_response}   status
-    ${status}=  get from list  ${status_list}  0
-
-    should be equal as numbers  ${put_response.status_code}  200
-    should be equal as strings   ${status}   true
-
-    Fetch Details and Validate  ${Base_URL}  ${id}  Neel
+    Put Update and Validate  ${Base_URL}   ${id}  ${body1}   Neel
 
     Fetch and Validate Delete Request  ${Base_URL}   /api/studentsDetails/${id}  200
 
-    ${get_deleted_request}=  GET On Session   ETE   /api/studentsDetails/${id}
+    ${get_deleted_request}=  Fetch and Validate Get Status Code  ${Base_URL}  /api/studentsDetails/${id}  200
+
     log to console  ${get_deleted_request.content}
     ${json_deleted_response}=  to json  ${get_deleted_request.content}
     @{delete_status_list}=  get value from json  ${json_deleted_response}   status
