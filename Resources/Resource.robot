@@ -16,7 +16,7 @@ Fetch and Validate Get Status Code
     log to console  ${Response.text}
     ${actual_code}=  convert to string  ${Response.status_code}
     should be equal  ${actual_code}  ${expectedStatusCode}
-
+    [Return]  ${Response}
 
 Fetch Details and Validate
     [Arguments]  ${url}   ${Id}  ${expectedValue}
@@ -40,6 +40,40 @@ Fetch and Validate Delete Request
     ${Response}=      Delete Request    SName    ${relativePath}
     log to console  ${Response.status_code}
     Should Be Equal As Numbers    ${Response.status_code}    ${expectedValue}
+
+Post Create Data and Validate
+    [Arguments]  ${url}   ${body}  ${expectedValue}
+
+    create session  SName  ${url}
+    &{headers}=   create dictionary  Content-Type=application/json
+    ${post_response}=  post request  SName   api/studentsDetails   headers=${headers}   json=${body}
+    #log to console  ${post_response.content}
+
+    ${json_response}=  to json  ${post_response.content}
+    @{id_list}=  get value from json  ${json_response}  id
+    ${id}=  get from list  ${id_list}  0
+
+    [Return]  ${id}
+
+
+
+Put Update and Validate
+    [Arguments]  ${url}   ${id}  ${body}  ${expectedValue}
+
+    create session  SName  ${url}
+    &{headers}=  create dictionary  Content-Type=application/json
+
+    ${put_response}=  put request   SName   api/studentsDetails/${id}  headers=${headers}   data=${body}
+    #log to console  ${post_response.content}
+
+#    ${json_put_response}=  to json  ${put_response.content}
+#    @{status_list}=  get value from json  ${json_put_response}   status
+#    ${status}=  get from list  ${status_list}  0
+
+    should be equal as numbers  ${put_response.status_code}  200
+#    should be equal as strings   ${status}   true
+#
+#    Fetch Details and Validate  ${Base_URL}  ${id}  ${expectedValue}
 
 
 

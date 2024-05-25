@@ -1,0 +1,27 @@
+# Ignore all .log files
+*.log
+*.html
+*.xml
+*.json
+
+# Ignore log files in a specific directory
+ReportFile/*.log
+ReportFile/*.html
+ReportFile/*.xml
+
+ouput/allure/*.html
+ouput/allure/*.json
+output/robot/*.html
+output/robot/*.xml
+output/robot/*.log
+allure-report/*.8
+
+# Ignore a specific log file
+debug.log
+
+# Ignore all files in a specific directory
+ReportFile/
+allure-report/
+ouput/allure
+output/robot
+
