@@ -20,8 +20,9 @@ allure-report/*.8
 debug.log
 
 # Ignore all files in a specific directory
-ReportFile/
-allure-report/
-ouput/allure
-output/robot
+.ReportFile/
+.allure-report/
+.ouput/allure
+.output/robot
+
 
