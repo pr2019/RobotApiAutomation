@@ -16,6 +16,9 @@ output/robot/*.xml
 output/robot/*.log
 allure-report/data/*.csv
 allure-report/data/*.json
+allure-report/*.js
+allure-report/*.css
+allure-report/plugin/*.css
 
 # Ignore a specific log file
 debug.log

@@ -2,6 +2,8 @@
 Library  RequestsLibrary
 Library  JSONLibrary
 Library  Collections
+Library  ../ReadContent/ReadJson.py
+Documentation
 
 *** Variables ***
 ${Base_URL}   https://thetestingworldapi.com/
@@ -9,6 +11,7 @@ ${Base_URL2}  https://reqres.in/
 
 *** Keywords ***
 Fetch and Validate Get Status Code
+    [Documentation]
     [Arguments]  ${url}   ${relativePath}   ${expectedStatusCode}
     create session  SName  ${url}
     ${Response}=  get request  SName  ${relativePath}
@@ -19,6 +22,7 @@ Fetch and Validate Get Status Code
     [Return]  ${Response}
 
 Fetch Details and Validate
+    [Documentation]
     [Arguments]  ${url}   ${Id}  ${expectedValue}
 
     create session  SName  ${url}
@@ -34,6 +38,7 @@ Fetch Details and Validate
     should be equal   ${first_name}  ${expectedValue}
 
 Fetch and Validate Delete Request
+    [Documentation]
     [Arguments]  ${url}   ${relativePath}  ${expectedValue}
 
     Create Session    SName    ${url}
@@ -42,6 +47,7 @@ Fetch and Validate Delete Request
     Should Be Equal As Numbers    ${Response.status_code}    ${expectedValue}
 
 Post Create Data and Validate
+    [Documentation]
     [Arguments]  ${url}   ${body}  ${expectedValue}
 
     create session  SName  ${url}
@@ -58,6 +64,7 @@ Post Create Data and Validate
 
 
 Put Update and Validate
+    [Documentation]
     [Arguments]  ${url}   ${id}  ${body}  ${expectedValue}
 
     create session  SName  ${url}
@@ -76,4 +83,17 @@ Put Update and Validate
 #    Fetch Details and Validate  ${Base_URL}  ${id}  ${expectedValue}
 
 
+Fetch Requet Content
+    [Documentation]
+    ${jsonbody}=  read_request_data
+    [Return]  ${jsonbody}
+
+
+Welcome To Robot Automation Suite
+    [Documentation]  Welcome to Automation Suite
+    log to console  This is starting of Test Case
+
+End TestCase
+    [Documentation]  Test Case Completed
+    log to console  This is end of Test Case
 
