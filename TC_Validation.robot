@@ -2,6 +2,7 @@
 Library  RequestsLibrary
 Library  JSONLibrary
 Library  Collections
+Resource  Resources/Resource.robot
 
 *** Variables ***
 ${Base_URL}   https://thetestingworldapi.com/
@@ -12,32 +13,10 @@ ${last_name}   Sahani
 
 *** Test Cases ***
 TC_001_List_All_User_Request
-    create_session  Get_Student_Details  ${Base_URL2}
-    #${response}=  get request  Get_Student_Details  api/studentsDetails
-    ${response}=  get request  Get_Student_Details  api/users?page=2
-    log to console  ${response.status_code}
-    log to console  ${response.content}
+    Fetch and Validate Get Status Code  ${Base_URL2}  api/users?page=2  200
 
 TC_002_Fetch_Student_Details_By_Id
-    create session  FetchData  ${Base_URL2}
-    #${Response}=  get request  FetchData  api/studentsDetails/${StudentID}
-    ${Response}=  get request  FetchData  api/user/2
-    log to console  ${Response.status_code}
-    log to console  ${Response.text}
-    ${actual_code}=  convert to string  ${Response.status_code}
-    should be equal  ${actual_code}  200
-    ${json_resp}=  to json  ${Response.content}
-
-    # List is created by the @
-    @{first_name_list}=  get value from json  ${json_resp}  data.name
-    ${first_name}=  get from list  ${first_name_list}  0
-    log to console  ${first_name}
-    #should be equal  ${first_name}   Test Student
-
-    # List is created by the @
-    @{year_list}=  get value from json  ${json_resp}  data.year
-    ${year}=  get from list  ${year_list}  0
-    log to console  ${year}
+     Fetch and Validate Get Status Code  ${Base_URL2}   api/user/2   200
 
 TC_003_Get_With_Param
     create session  Get_Param  ${Base_URL2}
@@ -58,10 +37,7 @@ TC_003_Get_With_Param
     should not be equal  ${name}   Eve
 
 TC_004_Validate_Delete_Request
-    Create Session    reqres    ${Base_URL2}
-    ${Response}=      Delete Request    reqres    /api/users/2
-    Log To Console    ${Response.status_code}
-    Should Be Equal As Numbers    ${Response.status_code}    204
+    Fetch and Validate Delete Request  ${Base_URL2}   api/user/2   204
 
 
 TC_005_PostRequest:
@@ -129,20 +105,9 @@ TC_008_End_to_End_TestCase:
     should be equal as numbers  ${put_response.status_code}  200
     should be equal as strings   ${status}   true
 
-    ${get_request}=  GET On Session   ETE   /api/studentsDetails/${id}
-    # log to console  ${get_request.content}
-    ${json_response}=  to json  ${get_request.content}
-    @{L_f_name}=  get value from json  ${json_response}  data.first_name
-    ${first_name}=  get from list  ${L_f_name}  0
+    Fetch Details and Validate  ${Base_URL}  ${id}  Neel
 
-    @{l_name_list}=  get value from json  ${json_response}   data.last_name
-    ${last_name}=  get from list  ${l_name_list}  0
-
-    should be equal   ${first_name}  Neel
-
-
-    ${delete_request}=  delete request  ETE  /api/studentsDetails/${id}
-    #log to console  ${delete_request.content}
+    Fetch and Validate Delete Request  ${Base_URL}   /api/studentsDetails/${id}  200
 
     ${get_deleted_request}=  GET On Session   ETE   /api/studentsDetails/${id}
     log to console  ${get_deleted_request.content}
@@ -150,5 +115,8 @@ TC_008_End_to_End_TestCase:
     @{delete_status_list}=  get value from json  ${json_deleted_response}   status
     ${delete_status}=  get from list  ${delete_status_list}  0
     should be equal as strings   ${delete_status}   false
+
+*** Keywords ***
+
 
 
